@@ -1,21 +1,22 @@
 /* General body setup */
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background: linear-gradient(135deg, #ffe6f0, #fff0f5);
+    background: linear-gradient(135deg, #0077be, #00aaff); /* ocean blue gradient */
     margin: 0;
     padding: 0;
     color: #444;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;   /* align content to the left */
     min-height: 100vh;
+    padding-left: 40px;        /* add some spacing from the left edge */
 }
 
 /* Header */
 header {
-    background: linear-gradient(90deg, #ff99cc, #ff66b2);
+    background: linear-gradient(90deg, #0099cc, #006699); /* deeper ocean tones */
     padding: 25px;
-    text-align: center;
+    text-align: left;          /* align header text left */
     color: white;
     width: 100%;
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
@@ -23,40 +24,22 @@ header {
     border-bottom-right-radius: 25px;
 }
 
-header img {
-    width: 80px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    margin-bottom: 12px;
-}
-
-header img:hover {
-    transform: rotate(8deg) scale(1.2);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-}
-
 /* Container with glassmorphism */
 .container {
     width: 85%;
     max-width: 950px;
     margin: 40px auto;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(12px);
     padding: 35px;
     border-radius: 25px;
     box-shadow: 0px 8px 18px rgba(0,0,0,0.15);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.container:hover {
-    transform: translateY(-5px);
+    text-align: left;          /* align text left inside container */
 }
 
 /* Buttons row */
 button {
-    background: linear-gradient(135deg, #ff66b2, #ff3385);
+    background: linear-gradient(135deg, #00aaff, #0077be);
     border: none;
     padding: 14px 28px;
     margin: 10px;
@@ -69,9 +52,9 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(135deg, #ff3385, #ff0066);
+    background: linear-gradient(135deg, #0077be, #005577);
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 6px 12px rgba(255, 51, 133, 0.5);
+    box-shadow: 0 6px 12px rgba(0, 119, 190, 0.5);
 }
 
 /* Sections styled as pastel cards */
@@ -80,44 +63,42 @@ button:hover {
     margin-top: 30px;
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 6px 12px rgba(255, 153, 204, 0.3);
+    box-shadow: 0 6px 12px rgba(0, 153, 204, 0.3);
     animation: fadeSlide 0.6s ease;
+    text-align: left;          /* align section text left */
 }
 
 /* Section headings */
 .content h2 {
     font-size: 2em;
-    color: #ff3385;
+    color: #005577;
     margin-bottom: 20px;
     letter-spacing: 1px;
+    text-align: left;
 }
 
 /* Info cards inside Information */
 .info-card {
-    background: rgba(255, 240, 245, 0.9);
-    border: 1px solid #ff99cc;
+    background: rgba(240, 250, 255, 0.9);
+    border: 1px solid #00aaff;
     border-radius: 20px;
     padding: 22px;
     margin: 18px 0;
     box-shadow: 0px 6px 12px rgba(0,0,0,0.1);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.info-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0px 8px 16px rgba(255, 153, 204, 0.5);
+    text-align: left;
 }
 
 .info-card h3 {
     margin: 0;
-    color: #ff3385;
+    color: #0077be;
     font-size: 1.4em;
     letter-spacing: 0.5px;
 }
 
 .info-card p {
     margin: 8px 0;
-    color: #555;
+    color: #333;
     line-height: 1.6;
 }
 
