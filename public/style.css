@@ -14,10 +14,9 @@ body {
 
 /* Header */
 header {
-    text-align: center;
     background: linear-gradient(90deg, #0099cc, #006699);
     padding: 25px;
-    text-align: left;
+    text-align: center;
     color: white;
     width: 100%;
     box-shadow: 0 6px 15px rgba(0,0,0,0.2);

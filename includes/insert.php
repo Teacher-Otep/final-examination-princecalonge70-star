@@ -16,9 +16,9 @@
         $name = $_POST['name'];
         $middlename = $_POST['middlename'];
         $address = $_POST['address'];
-        $contact = $_POST['contact_number'];
-        $sql = "INSERT INTO students (surname,name,middlename,address,contact_number) 
-                VALUES ('$surname','$name','$middlename','$address','$contact')";
+        $studentid = $_POST['studentid_number'];
+        $sql = "INSERT INTO students (surname,name,middlename,address,studentid_number) 
+                VALUES ('$surname','$name','$middlename','$address','$studentid')";
         if($conn->query($sql)){
             echo "<p>Student saved successfully!</p>";
         }

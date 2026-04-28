@@ -6,7 +6,7 @@ include '../includes/db.php';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Student Management System</title>
+    <title>Database of Student Management System</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
@@ -15,7 +15,7 @@ include '../includes/db.php';
     <a href="#" onclick="showSection('home')">
         <img src="../images/logo.svg" id="logo" alt="Logo">
     </a>
-    <h1>Student Management System</h1>
+    <h1>Database of Student Management System</h1>
 </header>
 
 
@@ -28,7 +28,7 @@ include '../includes/db.php';
 
         <!-- HOME -->
         <section id="home" class="content" style="display:block;">
-            <h2>Welcome to the Student Management System</h2>
+            <h2>Welcome to Database of Student Management System</h2>
             <p>Select an option above to manage student records.</p>
         </section>
 
@@ -40,7 +40,7 @@ include '../includes/db.php';
                 <input type="text" name="name" placeholder="Name">
                 <input type="text" name="middlename" placeholder="Middle Name">
                 <input type="text" name="address" placeholder="Address">
-                <input type="number" name="contact_number" placeholder="Mobile Number">
+                <input type="number" name="studentid_number" placeholder="Student Id">
                 <button type="button" onclick="clearFields()">Clear Fields</button>
                 <button type="submit" name="save">Save</button>
             </form>
@@ -50,9 +50,9 @@ include '../includes/db.php';
                 $name = $_POST['name'];
                 $middlename = $_POST['middlename'];
                 $address = $_POST['address'];
-                $contact = $_POST['contact_number'];
-                $sql = "INSERT INTO students (surname,name,middlename,address,contact_number) 
-                        VALUES ('$surname','$name','$middlename','$address','$contact')";
+                $studentid = $_POST['studentid_number'];
+                $sql = "INSERT INTO students (surname,name,middlename,address,studentid_number) 
+                        VALUES ('$surname','$name','$middlename','$address','$studentid')";
                 if($conn->query($sql)){
                     echo "<p>Student saved successfully!</p>";
                 }
@@ -71,7 +71,7 @@ include '../includes/db.php';
                             <h3>{$row['surname']}, {$row['name']} {$row['middlename']}</h3>
                             <p><strong>ID:</strong> {$row['id']}</p>
                             <p><strong>Address:</strong> {$row['address']}</p>
-                            <p><strong>Contact:</strong> {$row['contact_number']}</p>
+                            <p><strong>Studentid:</strong> {$row['studentid_number']}</p>
                           </div>";
                 }
                 echo "<p>Total Students: " . $result->num_rows . "</p>";
@@ -104,22 +104,34 @@ include '../includes/db.php';
         </section>
 
         <!-- DELETE -->
-        <section id="delete" class="content">
-            <h2>Delete Student</h2>
-            <form method="post" action="">
-                <input type="number" name="id" placeholder="Student ID">
-                <button type="submit" name="delete">Delete</button>
-            </form>
-            <?php
-            if(isset($_POST['delete'])){
-                $id = $_POST['id'];
-                $sql = "DELETE FROM students WHERE id=$id";
-                if($conn->query($sql)){
-                    echo "<p>Record deleted!</p>";
-                }
+<section id="delete" class="content">
+    <h2>Delete Student</h2>
+    <form method="post" action="">
+        <input type="number" name="id" placeholder="Student ID" required>
+        <button type="submit" name="delete">Delete</button>
+    </form>
+    <?php
+    if(isset($_POST['delete'])){
+        $id = intval($_POST['id']); // sanitize input
+
+        // prepared statement para safe
+        $stmt = $conn->prepare("DELETE FROM students WHERE id = ?");
+        $stmt->bind_param("i", $id);
+
+        if($stmt->execute()){
+            if($stmt->affected_rows > 0){
+                echo "<p>Record deleted successfully!</p>";
+            } else {
+                echo "<p>No record found with ID $id.</p>";
             }
-            ?>
-        </section>
+        } else {
+            echo "<p>Error deleting record: " . $conn->error . "</p>";
+        }
+
+        $stmt->close();
+    }
+    ?>
+</section>
     </div>
 </body>
 </html>
