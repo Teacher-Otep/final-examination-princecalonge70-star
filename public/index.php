@@ -6,7 +6,7 @@ include '../includes/db.php';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Database of Student Management System</title>
+    <title>Kalinga State University Student Management System</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
@@ -15,7 +15,7 @@ include '../includes/db.php';
     <a href="#" onclick="showSection('home')">
         <img src="../images/logo.svg" id="logo" alt="Logo">
     </a>
-    <h1>Database of Student Management System</h1>
+    <h1>Kalinga State University Student Management System</h1>
 </header>
 
 
@@ -28,7 +28,7 @@ include '../includes/db.php';
 
         <!-- HOME -->
         <section id="home" class="content" style="display:block;">
-            <h2>Welcome to Database of Student Management System</h2>
+            <h2>Kalinga State University Student Management System</h2>
             <p>Select an option above to manage student records.</p>
         </section>
 
