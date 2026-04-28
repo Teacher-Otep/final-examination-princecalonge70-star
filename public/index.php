@@ -13,7 +13,7 @@ include '../includes/db.php';
 <body>
     <header>
     <a href="#" onclick="showSection('home')">
-        <img src="../image/logo.svg" id="logo" alt="Logo">
+        <img src="../images/logo.svg" id="logo" alt="Logo">
     </a>
     <h1>Student Management System</h1>
 </header>
