@@ -7,156 +7,122 @@ body {
     color: #444;
     display: flex;
     flex-direction: column;
-    align-items: center;   /* center horizontally */
+    align-items: center;
     min-height: 100vh;
 }
 
 /* Header */
 header {
     background: linear-gradient(90deg, #ff99cc, #ff66b2);
-    padding: 20px;
+    padding: 25px;
     text-align: center;
     color: white;
     width: 100%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
 
 header img {
-    width: 70px;
+    width: 80px;
     cursor: pointer;
     border-radius: 50%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 10px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    margin-bottom: 12px;
 }
 
 header img:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    transform: rotate(8deg) scale(1.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
 }
 
-/* Container */
+/* Container with glassmorphism */
 .container {
-    width: 80%;
-    max-width: 900px;
-    margin: 30px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0px 6px 12px rgba(0,0,0,0.1);
+    width: 85%;
+    max-width: 950px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: 0px 8px 18px rgba(0,0,0,0.15);
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
 }
 
 /* Buttons row */
 button {
-    background: #ff66b2;
+    background: linear-gradient(135deg, #ff66b2, #ff3385);
     border: none;
-    padding: 12px 25px;
-    margin: 8px;
+    padding: 14px 28px;
+    margin: 10px;
     color: white;
     font-weight: bold;
-    border-radius: 25px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    letter-spacing: 0.5px;
 }
 
 button:hover {
-    background: #ff3385;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(255, 51, 133, 0.4);
+    background: linear-gradient(135deg, #ff3385, #ff0066);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(255, 51, 133, 0.5);
 }
 
 /* Sections styled as pastel cards */
 .content {
     display: none;
-    margin-top: 25px;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(255, 153, 204, 0.3);
-    animation: fadeIn 0.5s ease;
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(255, 153, 204, 0.3);
+    animation: fadeSlide 0.6s ease;
 }
 
-/* Home section */
-#home {
-    display: block;
-    text-align: center;
-    background: linear-gradient(135deg, #ffe6f0, #fff0f5);
-}
-
-#home h2 {
+/* Section headings */
+.content h2 {
+    font-size: 2em;
     color: #ff3385;
-    font-size: 1.8em;
-    margin-bottom: 10px;
-}
-
-/* Create section */
-#create {
-    background: #fff0f5;
-}
-
-#create h2 {
-    color: #ff3385;
-    margin-bottom: 15px;
-}
-
-/* Information section */
-#information {
-    background: #fdfdfd;
-}
-
-#information h2 {
-    color: #ff3385;
-    margin-bottom: 15px;
-}
-
-/* Update section */
-#update {
-    background: #fff0f5;
-}
-
-#update h2 {
-    color: #ff3385;
-    margin-bottom: 15px;
-}
-
-/* Delete section */
-#delete {
-    background: #ffe6f0;
-}
-
-#delete h2 {
-    color: #ff3385;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
 }
 
 /* Info cards inside Information */
 .info-card {
-    background: #fff0f5;
+    background: rgba(255, 240, 245, 0.9);
     border: 1px solid #ff99cc;
-    border-radius: 15px;
-    padding: 20px;
-    margin: 15px 0;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 20px;
+    padding: 22px;
+    margin: 18px 0;
+    box-shadow: 0px 6px 12px rgba(0,0,0,0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .info-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0px 6px 12px rgba(255, 153, 204, 0.4);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0px 8px 16px rgba(255, 153, 204, 0.5);
 }
 
 .info-card h3 {
     margin: 0;
     color: #ff3385;
-    font-size: 1.3em;
+    font-size: 1.4em;
+    letter-spacing: 0.5px;
 }
 
 .info-card p {
-    margin: 6px 0;
-    color: #444;
+    margin: 8px 0;
+    color: #555;
+    line-height: 1.6;
 }
 
-/* Smooth fade animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+/* Smooth fade + slide animation */
+@keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
