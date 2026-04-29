@@ -26,13 +26,13 @@ include '../includes/db.php';
         <button onclick="showSection('update')">Update</button>
         <button onclick="showSection('delete')">Delete</button>
 
-        <!-- HOME -->
+        
         <section id="home" class="content" style="display:block;">
             <h2>Kalinga State University Student Management System</h2>
             <p>Select an option above to manage student records.</p>
         </section>
 
-        <!-- CREATE -->
+        
         <section id="create" class="content">
             <h2>Insert New Student</h2>
             <form method="post" action="">
@@ -60,7 +60,7 @@ include '../includes/db.php';
             ?>
         </section>
 
-        <!-- INFORMATION -->
+        
         <section id="information" class="content">
             <h2>Student Information</h2>
             <?php
@@ -81,7 +81,7 @@ include '../includes/db.php';
             ?>
         </section>
 
-        <!-- UPDATE -->
+        
         <section id="update" class="content">
             <h2>Update Student</h2>
             <form method="post" action="">
@@ -103,7 +103,7 @@ include '../includes/db.php';
             ?>
         </section>
 
-        <!-- DELETE -->
+        
 <section id="delete" class="content">
     <h2>Delete Student</h2>
     <form method="post" action="">
@@ -114,7 +114,7 @@ include '../includes/db.php';
     if(isset($_POST['delete'])){
         $id = intval($_POST['id']); // sanitize input
 
-        // prepared statement para safe
+        
         $stmt = $conn->prepare("DELETE FROM students WHERE id = ?");
         $stmt->bind_param("i", $id);
 

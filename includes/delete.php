@@ -1,4 +1,4 @@
-<!-- DELETE -->
+
 <section id="delete" class="content">
     <h2>Delete Student</h2>
     <form method="post" action="">
@@ -9,7 +9,7 @@
     if(isset($_POST['delete'])){
         $id = intval($_POST['id']); // sanitize input
 
-        // prepared statement para safe
+        
         $stmt = $conn->prepare("DELETE FROM students WHERE id = ?");
         $stmt->bind_param("i", $id);
 
